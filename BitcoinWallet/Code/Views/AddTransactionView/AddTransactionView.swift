@@ -10,26 +10,43 @@ import UIKit
 
 final class AddTransactionView: UIView {
     
+    //MARK: UI elements
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.text = "Add amount and select transaction category"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
+        titleLabel.textColor = .white
+        return titleLabel
+    }()
+    
     private lazy var countTextField: UITextField = {
         let countTextField = UITextField()
         countTextField.translatesAutoresizingMaskIntoConstraints = false
-        countTextField.backgroundColor = .red
+        countTextField.backgroundColor = .white
+        countTextField.layer.cornerRadius = 10
+        countTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
+        countTextField.keyboardType = .decimalPad
         return countTextField
     }()
     
     private lazy var categoryButton: UIButton = {
         let categoryButton = UIButton()
         categoryButton.translatesAutoresizingMaskIntoConstraints = false
-        categoryButton.setTitle("Category", for: .normal)
-        categoryButton.backgroundColor = .green
+        categoryButton.setBackgroundImage(UIImage(named: "categoryIcon"), for: .normal)
         return categoryButton
     }()
     
     private lazy var addTransactionButton: UIButton = {
         let addTransactionButton = UIButton()
         addTransactionButton.translatesAutoresizingMaskIntoConstraints = false
-        addTransactionButton.setTitle("Add Transaction", for: .normal)
-        addTransactionButton.backgroundColor = .green
+        addTransactionButton.setTitle("Add", for: .normal)
+        addTransactionButton.setTitleColor(.blue, for: .normal)
+        addTransactionButton.backgroundColor = .white
+        addTransactionButton.layer.cornerRadius = 15
+        addTransactionButton.titleLabel?.font = UIFont(name: "Inter-Bold", size: 15)
         return addTransactionButton
     }()
     
@@ -37,43 +54,86 @@ final class AddTransactionView: UIView {
         let stackView = UIStackView(arrangedSubviews: [countTextField, categoryButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.distribution = .fill
+        stackView.alignment = .center
         return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        addConstraints()
-      }
-      
-      required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupView()
-        addConstraints()
-      }
-      
-      private func setupView() {
-          backgroundColor = .white
-          addSubview(stackView)
-          addSubview(addTransactionButton)
-      }
+        makeCategoryMenu()
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "mainBackground.jpg")!)
+        addSubview(titleLabel)
+        addSubview(stackView)
+        addSubview(addTransactionButton)
+        addConstraints()
+    }
+    
+    //MARK: Category Menu
+    func makeCategoryMenu() {
+        let groceries = UIAction(title: "Groceries", image: UIImage(systemName: "cart")) { (action) in
+            
+            print("Users action was tapped")
+        }
+        
+        let taxi = UIAction(title: "Taxi", image: UIImage(systemName: "car")) { (action) in
+            
+            print("Add User action was tapped")
+        }
+        
+        let electronics = UIAction(title: "Electronics", image: UIImage(systemName: "iphone")) { (action) in
+            print("Remove User action was tapped")
+        }
+        
+        let restaurant = UIAction(title: "Restaurant", image: UIImage(systemName: "wineglass")) { (action) in
+            print("Remove User action was tapped")
+        }
+        
+        let other = UIAction(title: "Other", image: UIImage(systemName: "heart")) { (action) in
+            print("Remove User action was tapped")
+        }
+        
+        let menu = UIMenu(options: .displayInline, children: [groceries, taxi, electronics, restaurant, other])
+        
+        categoryButton.menu = menu
+        categoryButton.showsMenuAsPrimaryAction = true
+    }
+    
+    //MARK: Constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
-
+        
         let guide = self.safeAreaLayoutGuide
-        constraints.append(countTextField.heightAnchor.constraint(equalToConstant: 30))
-        constraints.append(countTextField.widthAnchor.constraint(equalToConstant: 100))
+        constraints.append(titleLabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: 150))
+        constraints.append(titleLabel.centerXAnchor.constraint(equalTo: guide.centerXAnchor))
+        constraints.append(titleLabel.heightAnchor.constraint(equalToConstant: 50))
+        constraints.append(titleLabel.widthAnchor.constraint(equalToConstant: 250))
+        
+        constraints.append(countTextField.heightAnchor.constraint(equalToConstant: 40))
+        constraints.append(countTextField.widthAnchor.constraint(equalToConstant: 150))
+        
+        constraints.append(categoryButton.heightAnchor.constraint(equalToConstant: 30))
+        constraints.append(categoryButton.widthAnchor.constraint(equalToConstant: 30))
         
         constraints.append(stackView.centerXAnchor.constraint(equalTo: guide.centerXAnchor))
-        constraints.append(stackView.topAnchor.constraint(equalTo: guide.topAnchor,
-                                                                  constant: 150))
-
+        constraints.append(stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                                          constant: 20))
+        
         constraints.append(addTransactionButton.topAnchor.constraint(equalTo: stackView.bottomAnchor,
-                                                                    constant: 20))
+                                                                     constant: 20))
         constraints.append(addTransactionButton.centerXAnchor.constraint(equalTo: guide.centerXAnchor))
+        constraints.append(addTransactionButton.heightAnchor.constraint(equalToConstant: 40))
+        constraints.append(addTransactionButton.widthAnchor.constraint(equalTo: stackView.widthAnchor,
+                                                                       constant: -60))
         
         NSLayoutConstraint.activate(constraints)
     }

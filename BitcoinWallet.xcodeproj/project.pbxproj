@@ -16,6 +16,11 @@
 		5DD74AD8290FDBC100BC14EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74AD7290FDBC100BC14EC /* MainView.swift */; };
 		5DD74ADB290FE2F200BC14EC /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74ADA290FE2F200BC14EC /* AddTransactionViewController.swift */; };
 		5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */; };
+		5DD74AE92910693600BC14EC /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AE72910691C00BC14EC /* Inter-Bold.ttf */; };
+		5DD74AEC2910693D00BC14EC /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AE32910691C00BC14EC /* Inter-Light.ttf */; };
+		5DD74AED2910694000BC14EC /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74ADF2910691C00BC14EC /* Inter-Medium.ttf */; };
+		5DD74AEE2910694300BC14EC /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AE52910691C00BC14EC /* Inter-Regular.ttf */; };
+		5DD74AF329107EA500BC14EC /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74AF229107EA500BC14EC /* TransactionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		5DD74AD7290FDBC100BC14EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5DD74ADA290FE2F200BC14EC /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		5DD74ADF2910691C00BC14EC /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		5DD74AE32910691C00BC14EC /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		5DD74AE52910691C00BC14EC /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		5DD74AE72910691C00BC14EC /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		5DD74AF229107EA500BC14EC /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,7 @@
 		5DD74AB0290F090400BC14EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DD74ADE2910690100BC14EC /* Fonts */,
 				5DD74AA0290F04A000BC14EC /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -125,6 +136,7 @@
 		5DD74AD2290FDB4800BC14EC /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				5DD74AF129107E8200BC14EC /* TransactionCell */,
 				5DD74A98290F049F00BC14EC /* MainViewController.swift */,
 				5DD74AD7290FDBC100BC14EC /* MainView.swift */,
 			);
@@ -138,6 +150,25 @@
 				5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */,
 			);
 			path = AddTransactionView;
+			sourceTree = "<group>";
+		};
+		5DD74ADE2910690100BC14EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74AE72910691C00BC14EC /* Inter-Bold.ttf */,
+				5DD74AE32910691C00BC14EC /* Inter-Light.ttf */,
+				5DD74ADF2910691C00BC14EC /* Inter-Medium.ttf */,
+				5DD74AE52910691C00BC14EC /* Inter-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5DD74AF129107E8200BC14EC /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74AF229107EA500BC14EC /* TransactionCell.swift */,
+			);
+			path = TransactionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +229,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD74AEE2910694300BC14EC /* Inter-Regular.ttf in Resources */,
 				5DD74AA4290F04A000BC14EC /* LaunchScreen.storyboard in Resources */,
+				5DD74AED2910694000BC14EC /* Inter-Medium.ttf in Resources */,
+				5DD74AE92910693600BC14EC /* Inter-Bold.ttf in Resources */,
 				5DD74AA1290F04A000BC14EC /* Assets.xcassets in Resources */,
+				5DD74AEC2910693D00BC14EC /* Inter-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +251,7 @@
 				5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */,
 				5DD74ADB290FE2F200BC14EC /* AddTransactionViewController.swift in Sources */,
 				5DD74AD8290FDBC100BC14EC /* MainView.swift in Sources */,
+				5DD74AF329107EA500BC14EC /* TransactionCell.swift in Sources */,
 				5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
