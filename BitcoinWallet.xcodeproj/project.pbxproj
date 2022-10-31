@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A94290F049F00BC14EC /* AppDelegate.swift */; };
 		5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A96290F049F00BC14EC /* SceneDelegate.swift */; };
-		5DD74A99290F049F00BC14EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A98290F049F00BC14EC /* ViewController.swift */; };
+		5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A98290F049F00BC14EC /* MainViewController.swift */; };
 		5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A9D290F049F00BC14EC /* BitcoinWallet.xcdatamodeld */; };
 		5DD74AA1290F04A000BC14EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AA0290F04A000BC14EC /* Assets.xcassets */; };
 		5DD74AA4290F04A000BC14EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AA2290F04A000BC14EC /* LaunchScreen.storyboard */; };
+		5DD74AD8290FDBC100BC14EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74AD7290FDBC100BC14EC /* MainView.swift */; };
+		5DD74ADB290FE2F200BC14EC /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74ADA290FE2F200BC14EC /* AddTransactionViewController.swift */; };
+		5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DD74A91290F049F00BC14EC /* BitcoinWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD74A94290F049F00BC14EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DD74A96290F049F00BC14EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DD74A98290F049F00BC14EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DD74A98290F049F00BC14EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DD74A9E290F049F00BC14EC /* BitcoinWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BitcoinWallet.xcdatamodel; sourceTree = "<group>"; };
 		5DD74AA0290F04A000BC14EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DD74AA3290F04A000BC14EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DD74AA5290F04A000BC14EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DD74AD7290FDBC100BC14EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5DD74ADA290FE2F200BC14EC /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +93,8 @@
 		5DD74AAD290F08D100BC14EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5DD74A98290F049F00BC14EC /* ViewController.swift */,
+				5DD74AD9290FE2BE00BC14EC /* AddTransactionView */,
+				5DD74AD2290FDB4800BC14EC /* MainView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +120,24 @@
 				5DD74A9D290F049F00BC14EC /* BitcoinWallet.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5DD74AD2290FDB4800BC14EC /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74A98290F049F00BC14EC /* MainViewController.swift */,
+				5DD74AD7290FDBC100BC14EC /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		5DD74AD9290FE2BE00BC14EC /* AddTransactionView */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74ADA290FE2F200BC14EC /* AddTransactionViewController.swift */,
+				5DD74ADC290FE31000BC14EC /* AddTransactionView.swift */,
+			);
+			path = AddTransactionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +210,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD74A99290F049F00BC14EC /* ViewController.swift in Sources */,
+				5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */,
+				5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */,
 				5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */,
 				5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */,
+				5DD74ADB290FE2F200BC14EC /* AddTransactionViewController.swift in Sources */,
+				5DD74AD8290FDBC100BC14EC /* MainView.swift in Sources */,
 				5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
