@@ -24,7 +24,7 @@ class DataStoreManager {
     }()
     
     lazy var viewContext: NSManagedObjectContext = persistentContainer.viewContext
-
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -39,7 +39,7 @@ class DataStoreManager {
         }
     }
     
-    func createBalance() -> Balance {
+    func obtainBalance() -> Balance {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Balance.name)
         
@@ -47,7 +47,7 @@ class DataStoreManager {
             return balance.first!
         } else {
             let balance = Balance(context: viewContext)
-            
+        
             do {
                 try viewContext.save()
             } catch let error {
@@ -79,7 +79,7 @@ class DataStoreManager {
         }
     }
     
-    func addTransaction(isReplenish: Bool, amount: Double, category: Category) {
+    func addTransaction(isReplenish: Bool, amount: Double, category: Category, completion: @escaping () -> Void) {
         let transaction = Transaction(context: viewContext)
         transaction.amount = amount
         transaction.isReplenish = isReplenish
@@ -93,6 +93,7 @@ class DataStoreManager {
         }
         
         updateBalance(with: amount, isReplenish: isReplenish)
+        completion()
     }
     
 //    func getBalance() -> [Balance]? {

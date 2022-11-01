@@ -96,8 +96,16 @@ final class MainView: UIView {
         addConstraints()
     }
     
+    func updateBalance(with amount: Double) {
+        currentBalanceLabel.text = String(amount)
+    }
+    
     func addTransactionButtonTarget(_ target: Any?, action: Selector) {
         addTransactionButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func addButtonTarget(_ target: Any?, action: Selector) {
+        addButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     //MARK: TableView setup
