@@ -21,6 +21,11 @@
 		5DD74AED2910694000BC14EC /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74ADF2910691C00BC14EC /* Inter-Medium.ttf */; };
 		5DD74AEE2910694300BC14EC /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AE52910691C00BC14EC /* Inter-Regular.ttf */; };
 		5DD74AF329107EA500BC14EC /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74AF229107EA500BC14EC /* TransactionCell.swift */; };
+		5DD74B142911542A00BC14EC /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B102911542A00BC14EC /* Balance+CoreDataClass.swift */; };
+		5DD74B152911542A00BC14EC /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B112911542A00BC14EC /* Balance+CoreDataProperties.swift */; };
+		5DD74B162911542A00BC14EC /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */; };
+		5DD74B172911542A00BC14EC /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B132911542A00BC14EC /* Transaction+CoreDataProperties.swift */; };
+		5DD74B1A2911567E00BC14EC /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B192911567E00BC14EC /* DataStoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		5DD74AE52910691C00BC14EC /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		5DD74AE72910691C00BC14EC /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		5DD74AF229107EA500BC14EC /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		5DD74B102911542A00BC14EC /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5DD74B112911542A00BC14EC /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5DD74B132911542A00BC14EC /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5DD74B192911567E00BC14EC /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,8 @@
 		5DD74AB1290F094900BC14EC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				5DD74B182911567100BC14EC /* Manager */,
+				5DD74AFF29114F1B00BC14EC /* Models */,
 				5DD74A9D290F049F00BC14EC /* BitcoinWallet.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -169,6 +181,25 @@
 				5DD74AF229107EA500BC14EC /* TransactionCell.swift */,
 			);
 			path = TransactionCell;
+			sourceTree = "<group>";
+		};
+		5DD74AFF29114F1B00BC14EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74B102911542A00BC14EC /* Balance+CoreDataClass.swift */,
+				5DD74B112911542A00BC14EC /* Balance+CoreDataProperties.swift */,
+				5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */,
+				5DD74B132911542A00BC14EC /* Transaction+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DD74B182911567100BC14EC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5DD74B192911567E00BC14EC /* DataStoreManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,12 +278,17 @@
 			files = (
 				5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */,
 				5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */,
+				5DD74B162911542A00BC14EC /* Transaction+CoreDataClass.swift in Sources */,
 				5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */,
+				5DD74B1A2911567E00BC14EC /* DataStoreManager.swift in Sources */,
 				5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */,
 				5DD74ADB290FE2F200BC14EC /* AddTransactionViewController.swift in Sources */,
 				5DD74AD8290FDBC100BC14EC /* MainView.swift in Sources */,
+				5DD74B152911542A00BC14EC /* Balance+CoreDataProperties.swift in Sources */,
+				5DD74B172911542A00BC14EC /* Transaction+CoreDataProperties.swift in Sources */,
 				5DD74AF329107EA500BC14EC /* TransactionCell.swift in Sources */,
 				5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */,
+				5DD74B142911542A00BC14EC /* Balance+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

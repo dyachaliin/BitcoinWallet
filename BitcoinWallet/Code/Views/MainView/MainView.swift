@@ -128,6 +128,10 @@ final class MainView: UIView {
         return transactionsTableView.dequeueReusableCell(withIdentifier: identifier)
     }
     
+    func reloadTableView() {
+        transactionsTableView.reloadData()
+    }
+    
     //MARK: Constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()

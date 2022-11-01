@@ -25,7 +25,7 @@ class TransactionCell: UITableViewCell {
         let categoryLabel = UILabel()
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.textAlignment = .center
-        categoryLabel.font = UIFont(name: "Inter-Regular", size: 10)
+        categoryLabel.font = UIFont(name: "Inter-Regular", size: 12)
         categoryLabel.textColor = .black
         return categoryLabel
     }()
@@ -60,10 +60,17 @@ class TransactionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(date: String, category: String, amount: String) {
-        dateLabel.text = date
-        categoryLabel.text = category
-        amountLabel.text = amount
+    func set(category: String, amount: Double, isReplenish: Bool, date: Date) {
+        dateLabel.text = dateFormatter(date: date)
+        categoryLabel.text = isReplenish ? "" : category
+        amountLabel.text = isReplenish ? "+\(amount)" : "-\(amount)"
+        amountLabel.textColor = isReplenish ? .green : .red
+    }
+    
+    private func dateFormatter(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM.dd.yyyy HH:mm"
+        return dateFormatter.string(from: date)
     }
     
     //MARK: Constraints
