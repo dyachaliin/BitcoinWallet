@@ -63,7 +63,6 @@ final class AddTransactionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        makeCategoryMenu()
     }
     
     required init?(coder: NSCoder) {
@@ -78,32 +77,16 @@ final class AddTransactionView: UIView {
         addConstraints()
     }
     
-    //MARK: Category Menu
-    func makeCategoryMenu() {
-        let groceries = UIAction(title: "Groceries", image: UIImage(systemName: "cart")) { (action) in
-            
-            print("Users action was tapped")
-        }
-        
-        let taxi = UIAction(title: "Taxi", image: UIImage(systemName: "car")) { (action) in
-            
-            print("Add User action was tapped")
-        }
-        
-        let electronics = UIAction(title: "Electronics", image: UIImage(systemName: "iphone")) { (action) in
-            print("Remove User action was tapped")
-        }
-        
-        let restaurant = UIAction(title: "Restaurant", image: UIImage(systemName: "wineglass")) { (action) in
-            print("Remove User action was tapped")
-        }
-        
-        let other = UIAction(title: "Other", image: UIImage(systemName: "heart")) { (action) in
-            print("Remove User action was tapped")
-        }
-        
-        let menu = UIMenu(options: .displayInline, children: [groceries, taxi, electronics, restaurant, other])
-        
+    func addTransactionButtonTarget(_ target: Any?, action: Selector) {
+        addTransactionButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func getTextFieldText() -> String {
+        guard let text = countTextField.text else { return "" }
+        return text
+    }
+    
+    func addMenuToCategory(menu: UIMenu) {
         categoryButton.menu = menu
         categoryButton.showsMenuAsPrimaryAction = true
     }

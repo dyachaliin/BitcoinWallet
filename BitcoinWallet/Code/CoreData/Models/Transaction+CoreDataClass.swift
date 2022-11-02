@@ -10,13 +10,17 @@ import Foundation
 import CoreData
 
 
-enum Category: String {
+enum Category: String, CaseIterable {
     case groceries
     case taxi
     case electronics
     case restaurant
     case other
     case none
+    
+    var displayName: String {
+        return rawValue.capitalized
+    }
 }
 
 public class Transaction: NSManagedObject {

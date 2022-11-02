@@ -35,7 +35,7 @@ final class MainView: UIView {
         let currentBalanceLabel = UILabel()
         currentBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
         currentBalanceLabel.textAlignment = .center
-        currentBalanceLabel.text = "0.0"
+        currentBalanceLabel.text = "0.0 BTC"
         currentBalanceLabel.font = UIFont(name: "Inter-Regular", size: 20)
         currentBalanceLabel.textColor = .white
         return currentBalanceLabel
@@ -97,7 +97,7 @@ final class MainView: UIView {
     }
     
     func updateBalance(with amount: Double) {
-        currentBalanceLabel.text = String(amount)
+        currentBalanceLabel.text = "\(amount) BTC"
     }
     
     func addTransactionButtonTarget(_ target: Any?, action: Selector) {
