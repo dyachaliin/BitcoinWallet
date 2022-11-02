@@ -140,6 +140,10 @@ final class MainView: UIView {
         transactionsTableView.reloadData()
     }
     
+    func insertRows(at path: IndexPath) {
+        transactionsTableView.insertRows(at: [path], with: .automatic)
+    }
+    
     //MARK: Constraints
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()

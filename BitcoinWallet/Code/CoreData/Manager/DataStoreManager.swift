@@ -79,7 +79,7 @@ class DataStoreManager {
         }
     }
     
-    func addTransaction(isReplenish: Bool, amount: Double, category: Category, completion: @escaping () -> Void) {
+    func addTransaction(isReplenish: Bool, amount: Double, category: Category) {
         let transaction = Transaction(context: viewContext)
         transaction.amount = amount
         transaction.isReplenish = isReplenish
@@ -93,7 +93,6 @@ class DataStoreManager {
         }
         
         updateBalance(with: amount, isReplenish: isReplenish)
-        completion()
     }
     
 //    func getBalance() -> [Balance]? {
