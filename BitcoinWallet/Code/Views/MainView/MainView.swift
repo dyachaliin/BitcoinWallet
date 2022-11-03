@@ -10,34 +10,15 @@ import UIKit
 
 final class MainView: UIView {
     
-    var currentTime: Date?
-    
     //MARK: UI elements
     private lazy var exchangeRateLabel: UILabel = {
         let exchangeRateLabel = UILabel()
         exchangeRateLabel.translatesAutoresizingMaskIntoConstraints = false
         exchangeRateLabel.textAlignment = .center
-        exchangeRateLabel.text = "I'm a test label"
         exchangeRateLabel.font = UIFont(name: "Inter-Regular", size: 15)
         exchangeRateLabel.textColor = .white
         return exchangeRateLabel
     }()
-    
-    func updateTime() {
-        currentTime = Date()
-        print(currentTime)
-    }
-    
-    func updateLabel() {
-        currentTime = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        
-        if let currentTime = currentTime {
-            self.exchangeRateLabel.text = formatter.string(from: currentTime)
-            print("test")
-        }
-    }
     
     private lazy var currentBalanceTitle: UILabel = {
         let currentBalanceTitle = UILabel()
@@ -127,24 +108,19 @@ final class MainView: UIView {
         addButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    //MARK: TableView setup
-    weak var tableViewDelegate: UITableViewDelegate? {
-        get {
-            return transactionsTableView.delegate
-        }
-        set {
-            transactionsTableView.delegate = newValue
-        }
+    func updateLabel(with exchange: Double) {
+        self.exchangeRateLabel.text = "1 USD = \(exchange) BTC"
     }
     
+    //MARK: TableView setup
+    weak var tableViewDelegate: UITableViewDelegate? {
+        get { return transactionsTableView.delegate }
+        set { transactionsTableView.delegate = newValue }
+    }
     
     weak var tableViewDataSource: UITableViewDataSource? {
-        get {
-            return transactionsTableView.dataSource
-        }
-        set {
-            transactionsTableView.dataSource = newValue
-        }
+        get { return transactionsTableView.dataSource }
+        set { transactionsTableView.dataSource = newValue }
     }
     
     func tableViewRegisterClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {

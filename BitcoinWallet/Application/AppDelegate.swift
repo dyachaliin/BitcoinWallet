@@ -10,7 +10,7 @@ import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -19,54 +19,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
         
-        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
-        
-//        if application.applicationState == .active {
-//            print("available")
-//        }
-//
-//        if application.applicationState == .background {
-//            print("background")
-//        }
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: Constants.backgroundId,
+                                        using: nil) { (task) in
+            self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
+        }
         
         return true
     }
     
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        print("applicationWillEnterForeground")
-//    }
-    
-    
-    
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        debugPrint("performFetchWithCompletionHandler")
-        if let nav = window?.rootViewController as? UINavigationController, let vc = nav.viewControllers.first as? MainViewController  {
-            vc.fetch()
-            completionHandler(.newData)
+    func scheduleBackgroundExchangeFetch() {
+        let fetchExchange = BGAppRefreshTaskRequest(identifier: Constants.backgroundId)
+        fetchExchange.earliestBeginDate = Date(timeIntervalSinceNow: 3600)
+        do {
+            try BGTaskScheduler.shared.submit(fetchExchange)
+            print("Submitted task request")
+        } catch {
+            print("Unable to submit task: \(error.localizedDescription)")
         }
-//        getData()
+    }
+    
+    func handleAppRefreshTask(task: BGAppRefreshTask) {
         
+        task.expirationHandler = {
+            NetworkManager.urlSession.invalidateAndCancel()
+            task.setTaskCompleted(success: false)
+        }
+        
+        NetworkManager.obtainExchangeResults { (results) in
+            switch results {
+            case .success(let result):
+                NotificationCenter.default.post(name: .newExchangeFetched,
+                                                object: self,
+                                                userInfo: [Constants.exchange : result])
+                task.setTaskCompleted(success: true)
+            case .failure(let error):
+                print(error.localizedDescription)
+                task.setTaskCompleted(success: true)
+            }
+        }
+        
+        scheduleBackgroundExchangeFetch()
     }
-    
-    func getData(){
-        debugPrint("getData")
-    }
-    
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
 
