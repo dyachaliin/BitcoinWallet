@@ -10,7 +10,6 @@
 		5D1B0718291291EF006F77ED /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B0717291291EF006F77ED /* MainViewPresenter.swift */; };
 		5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A94290F049F00BC14EC /* AppDelegate.swift */; };
 		5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A96290F049F00BC14EC /* SceneDelegate.swift */; };
-		5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A98290F049F00BC14EC /* MainViewController.swift */; };
 		5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A9D290F049F00BC14EC /* BitcoinWallet.xcdatamodeld */; };
 		5DD74AA1290F04A000BC14EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AA0290F04A000BC14EC /* Assets.xcassets */; };
 		5DD74AA4290F04A000BC14EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DD74AA2290F04A000BC14EC /* LaunchScreen.storyboard */; };
@@ -31,6 +30,7 @@
 		5DF4EFC92913CE3F00923B56 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFC82913CE3F00923B56 /* NetworkModels.swift */; };
 		5DF4EFCC2914082100923B56 /* Extensions+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFCB2914082100923B56 /* Extensions+NotificationCenter.swift */; };
 		5DF4EFCE291425D900923B56 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFCD291425D900923B56 /* Constants.swift */; };
+		5DF4EFD229143A6B00923B56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFD129143A6B00923B56 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,6 @@
 		5DD74A91290F049F00BC14EC /* BitcoinWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD74A94290F049F00BC14EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DD74A96290F049F00BC14EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DD74A98290F049F00BC14EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DD74A9E290F049F00BC14EC /* BitcoinWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BitcoinWallet.xcdatamodel; sourceTree = "<group>"; };
 		5DD74AA0290F04A000BC14EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DD74AA3290F04A000BC14EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		5DF4EFC82913CE3F00923B56 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 		5DF4EFCB2914082100923B56 /* Extensions+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+NotificationCenter.swift"; sourceTree = "<group>"; };
 		5DF4EFCD291425D900923B56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5DF4EFD129143A6B00923B56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				5DD74AF129107E8200BC14EC /* TransactionCell */,
-				5DD74A98290F049F00BC14EC /* MainViewController.swift */,
 				5DD74AD7290FDBC100BC14EC /* MainView.swift */,
+				5DF4EFD129143A6B00923B56 /* MainViewController.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -316,7 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */,
-				5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */,
 				5D1B0718291291EF006F77ED /* MainViewPresenter.swift in Sources */,
 				5DD74B162911542A00BC14EC /* Transaction+CoreDataClass.swift in Sources */,
 				5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */,
@@ -331,6 +330,7 @@
 				5DF4EFC92913CE3F00923B56 /* NetworkModels.swift in Sources */,
 				5DF4EFC52913C7FE00923B56 /* NetworkManager.swift in Sources */,
 				5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */,
+				5DF4EFD229143A6B00923B56 /* MainViewController.swift in Sources */,
 				5DD74B142911542A00BC14EC /* Balance+CoreDataClass.swift in Sources */,
 				5DF4EFCE291425D900923B56 /* Constants.swift in Sources */,
 			);
