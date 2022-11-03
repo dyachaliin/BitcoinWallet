@@ -20,25 +20,29 @@ class MainViewPresenter {
     }
     
     func obtainExchangeResults() {
-        NetworkManager.obtainExchangeResults {[weak self] (result) in
-            switch result {
-            case .success(let result):
-                DispatchQueue.main.async {
-                    if let amount = result?.currency.usd.rateFloat {
+        do {
+           try NetworkManager.obtainExchangeResults {[weak self] (result) in
+                switch result {
+                case .success(let result):
+                    DispatchQueue.main.async {
+                        let amount = result.currency.usd.rateFloat
                         self?.mainViewDelegate?.updateUI(with: amount)
                         //                        self?.mainView.updateLabel(with: amount)
                     }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
             }
+        } catch {
+            print(error.localizedDescription)
         }
+        
     }
     
     func registerForNotifications() {
         NotificationCenter.default.addObserver(forName: .newExchangeFetched, object: nil, queue: nil) { [weak self] (notification) in
             if let userInfo = notification.userInfo,
-               let result = userInfo[Constants.exchange] as? Result {
+               let result = userInfo[Constants.exchange] as? ExchangeResult {
                 self?.mainViewDelegate?.updateUI(with: result.currency.usd.rateFloat)
             }
         }

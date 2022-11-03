@@ -45,17 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             task.setTaskCompleted(success: false)
         }
         
-        NetworkManager.obtainExchangeResults { (results) in
-            switch results {
-            case .success(let result):
-                NotificationCenter.default.post(name: .newExchangeFetched,
-                                                object: self,
-                                                userInfo: [Constants.exchange : result])
-                task.setTaskCompleted(success: true)
-            case .failure(let error):
-                print(error.localizedDescription)
-                task.setTaskCompleted(success: true)
+        do {
+            try NetworkManager.obtainExchangeResults { (results) in
+                switch results {
+                case .success(let result):
+                    NotificationCenter.default.post(name: .newExchangeFetched,
+                                                    object: self,
+                                                    userInfo: [Constants.exchange : result])
+                    task.setTaskCompleted(success: true)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    task.setTaskCompleted(success: true)
+                }
             }
+        } catch {
+            print(error.localizedDescription)
         }
         
         scheduleBackgroundExchangeFetch()

@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - Result
-struct Result: Codable {
+// MARK: - ExchangeResult
+struct ExchangeResult: Codable {
     let time: Time
     let disclaimer, chartName: String
     let currency: Currency
