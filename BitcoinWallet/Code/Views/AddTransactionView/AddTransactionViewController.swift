@@ -25,7 +25,7 @@ class AddTransactionViewController: UIViewController {
     
     @objc func addTransaction() {
         let textFieldAmount = addTransactionView.getTextFieldText()
-        guard !textFieldAmount.isEmpty, let amount = Double(textFieldAmount), category != .none else { return }
+        guard !textFieldAmount.isEmpty, let amount = Double(textFieldAmount.replacingOccurrences(of: ",", with: ".")), category != .none else { return }
         
         if balance.amount < amount {
             showAlert()
@@ -45,13 +45,9 @@ class AddTransactionViewController: UIViewController {
     private func makeCategoryMenu() {
         
         let groceries = makeAction(category: .groceries, imageName: "cart") {  self.category = .groceries }
-        
         let taxi = makeAction(category: .taxi, imageName: "car") {  self.category = .taxi }
-        
         let electronics = makeAction(category: .electronics, imageName: "iphone") {  self.category = .electronics }
-        
         let restaurant = makeAction(category: .restaurant, imageName: "wineglass") {  self.category = .restaurant }
-        
         let other = makeAction(category: .other, imageName: "heart") {  self.category = .other }
         
         let menu = UIMenu(options: .displayInline, children: [groceries, taxi, electronics, restaurant, other])

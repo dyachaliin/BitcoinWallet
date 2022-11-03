@@ -27,6 +27,7 @@ final class AddTransactionView: UIView {
         countTextField.translatesAutoresizingMaskIntoConstraints = false
         countTextField.backgroundColor = .white
         countTextField.layer.cornerRadius = 10
+        countTextField.textColor = .black
         countTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         countTextField.keyboardType = .decimalPad
         return countTextField

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
-    
+        
+        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        
+//        if application.applicationState == .active {
+//            print("available")
+//        }
+//
+//        if application.applicationState == .background {
+//            print("background")
+//        }
+        
         return true
     }
+    
+//    func applicationWillEnterForeground(_ application: UIApplication) {
+//        print("applicationWillEnterForeground")
+//    }
+    
+    
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        debugPrint("performFetchWithCompletionHandler")
+        if let nav = window?.rootViewController as? UINavigationController, let vc = nav.viewControllers.first as? MainViewController  {
+            vc.fetch()
+            completionHandler(.newData)
+        }
+//        getData()
+        
+    }
+    
+    func getData(){
+        debugPrint("getData")
+    }
+    
 
     // MARK: UISceneSession Lifecycle
 

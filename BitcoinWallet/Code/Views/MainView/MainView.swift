@@ -10,6 +10,8 @@ import UIKit
 
 final class MainView: UIView {
     
+    var currentTime: Date?
+    
     //MARK: UI elements
     private lazy var exchangeRateLabel: UILabel = {
         let exchangeRateLabel = UILabel()
@@ -20,6 +22,22 @@ final class MainView: UIView {
         exchangeRateLabel.textColor = .white
         return exchangeRateLabel
     }()
+    
+    func updateTime() {
+        currentTime = Date()
+        print(currentTime)
+    }
+    
+    func updateLabel() {
+        currentTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        
+        if let currentTime = currentTime {
+            self.exchangeRateLabel.text = formatter.string(from: currentTime)
+            print("test")
+        }
+    }
     
     private lazy var currentBalanceTitle: UILabel = {
         let currentBalanceTitle = UILabel()
@@ -62,6 +80,7 @@ final class MainView: UIView {
     private lazy var transactionsTableView: UITableView = {
         let transactionsTableView = UITableView()
         transactionsTableView.translatesAutoresizingMaskIntoConstraints = false
+        transactionsTableView.backgroundColor = .white
         transactionsTableView.clipsToBounds = true
         transactionsTableView.layer.cornerRadius = 30
         transactionsTableView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]

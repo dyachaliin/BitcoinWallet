@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UINavigationController(rootViewController: MainViewController())
         self.window = window
         window.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,6 +41,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        if let nav = window?.rootViewController as? UINavigationController, let vc = nav.viewControllers.first as? MainViewController  {
+            vc.updateLabel()
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

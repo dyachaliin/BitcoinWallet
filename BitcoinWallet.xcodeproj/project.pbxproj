@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1B0718291291EF006F77ED /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B0717291291EF006F77ED /* MainViewPresenter.swift */; };
 		5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A94290F049F00BC14EC /* AppDelegate.swift */; };
 		5DD74A97290F049F00BC14EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A96290F049F00BC14EC /* SceneDelegate.swift */; };
 		5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74A98290F049F00BC14EC /* MainViewController.swift */; };
@@ -26,9 +27,12 @@
 		5DD74B162911542A00BC14EC /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */; };
 		5DD74B172911542A00BC14EC /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B132911542A00BC14EC /* Transaction+CoreDataProperties.swift */; };
 		5DD74B1A2911567E00BC14EC /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD74B192911567E00BC14EC /* DataStoreManager.swift */; };
+		5DF4EFC52913C7FE00923B56 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFC42913C7FE00923B56 /* NetworkManager.swift */; };
+		5DF4EFC92913CE3F00923B56 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4EFC82913CE3F00923B56 /* NetworkModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1B0717291291EF006F77ED /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		5DD74A91290F049F00BC14EC /* BitcoinWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD74A94290F049F00BC14EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DD74A96290F049F00BC14EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5DD74B132911542A00BC14EC /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5DD74B192911567E00BC14EC /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
+		5DF4EFC42913C7FE00923B56 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5DF4EFC82913CE3F00923B56 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		5DD74AAE290F08E000BC14EC /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				5D1B0717291291EF006F77ED /* MainViewPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 		5DD74AFF29114F1B00BC14EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5DF4EFC62913CDD300923B56 /* NetworkModels */,
 				5DD74B102911542A00BC14EC /* Balance+CoreDataClass.swift */,
 				5DD74B112911542A00BC14EC /* Balance+CoreDataProperties.swift */,
 				5DD74B122911542A00BC14EC /* Transaction+CoreDataClass.swift */,
@@ -198,8 +206,17 @@
 			isa = PBXGroup;
 			children = (
 				5DD74B192911567E00BC14EC /* DataStoreManager.swift */,
+				5DF4EFC42913C7FE00923B56 /* NetworkManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		5DF4EFC62913CDD300923B56 /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DF4EFC82913CE3F00923B56 /* NetworkModels.swift */,
+			);
+			path = NetworkModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +295,7 @@
 			files = (
 				5DD74ADD290FE31000BC14EC /* AddTransactionView.swift in Sources */,
 				5DD74A99290F049F00BC14EC /* MainViewController.swift in Sources */,
+				5D1B0718291291EF006F77ED /* MainViewPresenter.swift in Sources */,
 				5DD74B162911542A00BC14EC /* Transaction+CoreDataClass.swift in Sources */,
 				5DD74A95290F049F00BC14EC /* AppDelegate.swift in Sources */,
 				5DD74B1A2911567E00BC14EC /* DataStoreManager.swift in Sources */,
@@ -287,6 +305,8 @@
 				5DD74B152911542A00BC14EC /* Balance+CoreDataProperties.swift in Sources */,
 				5DD74B172911542A00BC14EC /* Transaction+CoreDataProperties.swift in Sources */,
 				5DD74AF329107EA500BC14EC /* TransactionCell.swift in Sources */,
+				5DF4EFC92913CE3F00923B56 /* NetworkModels.swift in Sources */,
+				5DF4EFC52913C7FE00923B56 /* NetworkManager.swift in Sources */,
 				5DD74A9F290F049F00BC14EC /* BitcoinWallet.xcdatamodeld in Sources */,
 				5DD74B142911542A00BC14EC /* Balance+CoreDataClass.swift in Sources */,
 			);
@@ -427,6 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4SPJS2ZBYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BitcoinWallet/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -453,6 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4SPJS2ZBYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BitcoinWallet/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

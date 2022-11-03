@@ -95,15 +95,5 @@ class DataStoreManager {
         updateBalance(with: amount, isReplenish: isReplenish)
     }
     
-//    func getBalance() -> [Balance]? {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Balance.name)
-//
-//        if let balance = try? viewContext.fetch(fetchRequest) as? [Balance] {
-//            return balance
-//        }
-//
-//        return nil
-//    }
-    
     private init() {}
 }
